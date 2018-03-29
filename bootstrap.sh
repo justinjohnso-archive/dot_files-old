@@ -37,10 +37,11 @@ echo "Moving and creating symlink to $FILE from ~ to $DIR."
 ln -sfn $DIR/$FILE ~/$FILE
 done
 
-# make .vim directory
-if [ ! -d $DIR/.vim ]; then
-  mkdir $DIR/.vim
-fi
+# set up vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# install vim plugins
+vim +PluginInstall +qall
 
 # clone and install zim (UNDER CONSTRUCTION)
 if [ ! -d $DIR/.zim ]; then
@@ -51,6 +52,3 @@ echo "Follow steps 2 and 4 here: https://github.com/zimfw/zimfw"
 
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
-
-# install vim plugins
-vim +PluginInstall +qall
