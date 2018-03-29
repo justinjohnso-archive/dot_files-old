@@ -1,5 +1,6 @@
 # Ignore .zim
 .zim/
 
-# Ignore vim bundles
+# Ignore vim subdirectories
 .vim/bundle
+.vim/.undo
