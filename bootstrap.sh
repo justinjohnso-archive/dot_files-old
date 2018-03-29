@@ -11,7 +11,7 @@
 TIME=$(date "+%Y-%m-%d_%H-%M-%S")
 DIR=~/dot_files # dotfiles directory
 OLDDIR=~/dot_files_old_"$TIME" # old dotfiles backup directory
-FILES=(.vim .vimrc .zimrc) # list of files/folders to symlink in homedir
+FILES=(.vimrc .zimrc) # list of files/folders to symlink in homedir
 
 ##########
 
@@ -36,6 +36,11 @@ for FILE in "${FILES[@]}"; do
 echo "Moving and creating symlink to $FILE from ~ to $DIR."
 ln -sfn $DIR/$FILE ~/$FILE
 done
+
+# make .vim directory
+if [ ! -d $DIR/.vim ]; then
+  mkdir $DIR/.vim
+fi
 
 # clone and install zim (UNDER CONSTRUCTION)
 if [ ! -d $DIR/.zim ]; then

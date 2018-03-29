@@ -2,5 +2,4 @@
 .zim/
 
 # Ignore vim subdirectories
-.vim/bundle
-.vim/.undo
+.vim/
